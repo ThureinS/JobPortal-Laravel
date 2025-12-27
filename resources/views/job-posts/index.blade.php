@@ -1,4 +1,5 @@
 <x-layout>
+    <x-breadcrumbs class="mb-4" :links="['Jobs' => route('job-posts.index')]" />
     @foreach ($jobPosts as $jobPost)
         <x-job-card class="mb-4" :$jobPost>
             <div>
