@@ -12,7 +12,7 @@ class JobPostController extends Controller
      */
     public function index()
     {
-        return view('job-posts.index', ['jobs' => JobPost::all()]);
+        return view('job-posts.index', ['jobPosts' => JobPost::all()]);
     }
 
     /**
@@ -34,9 +34,9 @@ class JobPostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(JobPost $jobPost)
     {
-        //
+        return view('job-posts.show', compact('jobPost'));
     }
 
     /**
