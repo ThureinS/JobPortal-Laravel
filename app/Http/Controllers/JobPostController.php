@@ -21,7 +21,7 @@ class JobPostController extends Controller
             'category'
         );
 
-        return view('job-posts.index', ['jobPosts' => JobPost::filter($filters)->get()]);
+        return view('job-posts.index', ['jobPosts' => JobPost::with('employer')->filter($filters)->get()]);
     }
 
     /**
@@ -45,7 +45,7 @@ class JobPostController extends Controller
      */
     public function show(JobPost $jobPost)
     {
-        return view('job-posts.show', compact('jobPost'));
+        return view('job-posts.show', ['jobPost' => $jobPost->load('employer.job-posts')]);
     }
 
     /**
