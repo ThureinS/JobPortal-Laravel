@@ -13,9 +13,15 @@
         </div>
         <div class="flex space-x-1 text-xs">
             <x-tag>
-                {{ Str::ucfirst($jobPost->experience) }}
+                <a href="{{ route('job-posts.index', ['experience' => $jobPost->experience]) }}">
+                    {{ Str::ucfirst($jobPost->experience) }}
+                </a>
             </x-tag>
-            <x-tag>{{ $jobPost->category }}</x-tag>
+            <x-tag>
+                <a href="{{ route('job-posts.index', ['category' => $jobPost->category]) }}">
+                    {{ $jobPost->category }}
+                </a>
+            </x-tag>
         </div>
     </div>
     {{ $slot }}
