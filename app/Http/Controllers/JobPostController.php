@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\JobPost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class JobPostController extends Controller
 {
@@ -12,6 +13,7 @@ class JobPostController extends Controller
      */
     public function index()
     {
+        Gate::authorize('viewAny', JobPost::class);
         $jobPosts = JobPost::query();
         $filters = request()->only(
             'search',
@@ -45,6 +47,7 @@ class JobPostController extends Controller
      */
     public function show(JobPost $jobPost)
     {
+        Gate::authorize('view', $jobPost);
         return view('job-posts.show', ['jobPost' => $jobPost->load('employer.jobPosts')]);
     }
 
