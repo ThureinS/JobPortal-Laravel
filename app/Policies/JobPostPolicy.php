@@ -6,7 +6,7 @@ use App\Models\JobPost;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
-class JobPolicy
+class JobPostPolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -66,6 +66,6 @@ class JobPolicy
 
     public function apply(User $user, JobPost $jobPost): bool
     {
-        return false;
+        return !$jobPost->hasUserApplied($user);
     }
 }
