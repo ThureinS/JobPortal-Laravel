@@ -12,7 +12,7 @@
             Your Job Application
         </h2>
 
-        <form action="{{ route('job.application.store', $jobPost) }}" method="POST">
+        <form action="{{ route('job-posts.application.store', $jobPost) }}" method="POST">
             @csrf
             <div class="mb-4">
                 <label for="expected_salary" class="mb-2 block text-sm font-medium text-slate-900">Expected Salary</label>
