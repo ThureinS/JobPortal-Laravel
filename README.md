@@ -132,7 +132,7 @@ npm run dev
 
 ## Database Schema
 
-```mermaid
+```
 erDiagram
     users {
         bigint id PK
