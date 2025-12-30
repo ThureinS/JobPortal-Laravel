@@ -26,25 +26,6 @@ class JobPostController extends Controller
         return view('job-posts.index', ['jobPosts' => JobPost::with('employer')->latest()->filter($filters)->get()]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
     public function show(JobPost $jobPost)
     {
         Gate::authorize('view', $jobPost);
