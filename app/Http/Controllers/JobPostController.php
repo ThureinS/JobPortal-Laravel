@@ -23,7 +23,7 @@ class JobPostController extends Controller
             'category'
         );
 
-        return view('job-posts.index', ['jobPosts' => JobPost::with('employer')->filter($filters)->get()]);
+        return view('job-posts.index', ['jobPosts' => JobPost::with('employer')->latest()->filter($filters)->get()]);
     }
 
     /**
