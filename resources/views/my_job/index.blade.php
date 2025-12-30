@@ -27,6 +27,12 @@
                 @endforelse
                 <div class="flex space-x-2">
                     <x-link-button href="{{ route('my-jobs.edit', $jobPost) }}">Edit</x-link-button>
+
+                    <form action="{{ route('my-jobs.destroy', $jobPost) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <x-button>Delete</x-button>
+                    </form>
                 </div>
             </div>
         </x-job-card>

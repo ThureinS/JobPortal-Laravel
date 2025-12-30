@@ -68,5 +68,9 @@ class MyJobController extends Controller
     public function destroy(JobPost $myJob)
     {
         Gate::authorize('delete', $myJob);
+        $myJob->delete();
+
+        return redirect()->route('my-jobs.index')
+            ->with('success', 'Job deleted.');
     }
 }
