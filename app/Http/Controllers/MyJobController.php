@@ -19,6 +19,7 @@ class MyJobController extends Controller
             'jobPosts' => auth()->user()->employer
                 ->jobPosts()
                 ->with(['employer', 'jobApplications', 'jobApplications.user'])
+                // ->withTrashed()
                 ->get()
         ]);
     }
